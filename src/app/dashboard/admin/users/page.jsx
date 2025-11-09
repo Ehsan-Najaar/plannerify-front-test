@@ -11,6 +11,7 @@ import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../../../i18n'
 
 export default function AdminUsers() {
   const { store } = useStore()

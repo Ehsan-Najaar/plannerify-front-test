@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../../i18n'
 
 const MenuItem = ({ caption, href }) => (
   <li>

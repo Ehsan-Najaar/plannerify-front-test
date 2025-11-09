@@ -7,6 +7,7 @@ import { IDEA } from '@/data/api'
 import { useRequest } from '@/hooks/useRequest'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../../../i18n'
 
 export default function AddEditIdeasModal({ open, onClose, editMode, reload }) {
   const { t } = useTranslation()

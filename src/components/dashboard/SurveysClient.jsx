@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button'
 import { SURVEY } from '@/data/api'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../../i18n'
 
 const SurveyBox = ({ title, description, onCreate }) => {
   const { t } = useTranslation()

@@ -5,6 +5,7 @@ import Modal from '@/components/ui/Modal'
 import { Trash } from 'iconsax-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../../../../i18n'
 
 export default function AddEditSubModal({ open, onClose }) {
   const [form, setForm] = useState({

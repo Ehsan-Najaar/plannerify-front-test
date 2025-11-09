@@ -10,6 +10,8 @@ import { Add, Edit2, Trash } from 'iconsax-react'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../../i18n'
+
 import { toast } from 'react-toastify'
 
 function WeekCard({ date, tasks, createTask, editTask, onDeleteAll }) {

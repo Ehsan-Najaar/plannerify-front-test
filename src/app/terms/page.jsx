@@ -26,7 +26,7 @@ export default async function TermsPage() {
 
     const termsRes = await fetch(
       `${TERMS}/?languageId=${lang.id}&offset=0&limit=1`,
-      { next: { revalidate: 60 } } // ISR
+      { next: { revalidate } }
     )
     if (!termsRes.ok) throw new Error('Failed to load terms')
 

@@ -27,6 +27,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import '../../../i18n'
 
 // ---------- Custom Tooltip ----------
 function CustomTooltip({ active, payload, label, isDark }) {

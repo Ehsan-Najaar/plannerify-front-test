@@ -8,6 +8,7 @@ import { Add, Edit2, Setting2 } from 'iconsax-react'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../i18n'
 
 // ------------------ Card Component ------------------
 const Card = ({

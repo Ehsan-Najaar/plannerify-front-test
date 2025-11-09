@@ -15,6 +15,7 @@ import {
 import { Circle } from 'rc-progress'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../../i18n';
 
 import AddEditGoalsModal from '@/app/dashboard/goals/AddEditGoalsModal'
 import AddEditIdeasModal from '@/app/dashboard/ideas/AddEditIdeasModal'

@@ -22,6 +22,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { cloneElement } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../i18n';
 import { toast } from 'react-toastify'
 
 export const MenuItem = ({

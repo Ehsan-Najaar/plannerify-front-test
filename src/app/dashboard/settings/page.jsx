@@ -9,6 +9,7 @@ import { useRequest } from '@/hooks/useRequest'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../../i18n'
 
 export default function Settings() {
   const { t, i18n } = useTranslation()

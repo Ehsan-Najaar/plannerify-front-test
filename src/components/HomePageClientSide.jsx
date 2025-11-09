@@ -8,6 +8,7 @@ import { TickSquare } from 'iconsax-react'
 import Image from 'next/image'
 import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import '../../i18n'
 
 const FeatureCard = ({ title, description, image, bg }) => (
   <div className="bg-black w-full border border-solid border-white/20 rounded-xl text-white p-10 overflow-hidden relative">

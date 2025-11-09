@@ -13,6 +13,7 @@ import Loader from '@/components/Loader'
 import Input from '@/components/ui/Input'
 import { ArrowDown2 } from 'iconsax-react'
 import { useTranslation } from 'react-i18next'
+import '../../i18n'
 
 export default function Select({
   options,

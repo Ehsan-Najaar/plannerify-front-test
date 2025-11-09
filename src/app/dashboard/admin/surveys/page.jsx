@@ -8,6 +8,7 @@ import { useRequest } from '@/hooks/useRequest'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../../../i18n'
 
 const SurveyCard = ({ survey }) => {
   const [answer, setAnswer] = useState(survey.answer)

@@ -22,6 +22,7 @@ import {
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
+import '../../i18n';
 import { toast } from 'react-toastify'
 
 export default function SidebarAdmin() {

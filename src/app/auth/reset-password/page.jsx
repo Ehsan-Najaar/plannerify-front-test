@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../../i18n'
 
 export default function ResetPassword() {
   const { t } = useTranslation()

@@ -9,6 +9,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaPen, FaTrash } from 'react-icons/fa'
 import { toast } from 'react-toastify'
+import '../../../i18n'
 
 export default function GoalTasksModal({
   open,

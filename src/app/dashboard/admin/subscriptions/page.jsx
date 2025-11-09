@@ -8,6 +8,7 @@ import { safeParseJSON } from '@/utils/utils'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../../../i18n'
 
 const SubscriptionCard = ({
   cardTitle,

@@ -17,6 +17,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import '../../../../i18n'
 
 const Box = ({ title, children, className }) => (
   <div className={`bg-card text-text p-4 rounded-lg shadow-sm ${className}`}>

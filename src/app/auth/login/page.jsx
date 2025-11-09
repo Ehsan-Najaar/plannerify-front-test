@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import '../../../../i18n'
 
 export default function Login() {
   const { t } = useTranslation()

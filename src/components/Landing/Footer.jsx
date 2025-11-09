@@ -4,6 +4,7 @@ import { useSiteInfo } from '@/components/context/SiteInfoContext'
 import Button from '@/components/ui/Button'
 import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
+import '../../../i18n'
 
 export default function Footer({ socials }) {
   const { t } = useTranslation()
