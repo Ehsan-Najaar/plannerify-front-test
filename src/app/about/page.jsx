@@ -1,6 +1,6 @@
 // src/app/about/page.js
 
-import Footer from '@/components/landing/Footer'
+import Footer from '@/components/Landing/Footer'
 import LandingHeader from '@/components/Landing/Header'
 import { ABOUT, LANGUAGE } from '@/data/api'
 

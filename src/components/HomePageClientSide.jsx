@@ -1,7 +1,7 @@
 'use client'
 
-import Footer from '@/components/landing/Footer'
-import LandingHeader from '@/components/landing/Header'
+import Footer from '@/components/Landing/Footer'
+import LandingHeader from '@/components/Landing/Header'
 import Button from '@/components/ui/Button'
 import { arrayShuffle, groupFeedbacks, safeParseJSON } from '@/utils/utils'
 import { TickSquare } from 'iconsax-react'

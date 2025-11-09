@@ -1,5 +1,5 @@
-"use client";
-import Button from "@/components/button";
+'use client'
+import Button from '@/components/ui/Button'
 
 export default function PaypalFailPage() {
   return (
@@ -9,10 +9,10 @@ export default function PaypalFailPage() {
       if the problem persists.
       <Button
         className="mt-6"
-        onClick={() => (window.location.href = "/dashboard/go-premium")}
+        onClick={() => (window.location.href = '/dashboard/go-premium')}
         caption="Go back to payment page
 "
       />
     </div>
-  );
+  )
 }
