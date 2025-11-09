@@ -1,0 +1,13 @@
+/* chart axes text color and lines driven by CSS variables */
+.recharts-cartesian-axis text {
+  fill: var(--text) !important;
+  font-family: inherit;
+}
+
+/* axis lines and tick lines */
+.recharts-cartesian-axis .recharts-cartesian-axis-tick line,
+.recharts-cartesian-axis .recharts-cartesian-axis-tick path,
+.recharts-cartesian-axis .recharts-axis-line {
+  stroke: #a3a3a3 !important;
+  stroke-width: 2px;
+}

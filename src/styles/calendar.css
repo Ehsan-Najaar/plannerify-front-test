@@ -1,0 +1,178 @@
+/* ============================= */
+/* 🗓 استایل کلی FullCalendar */
+/* ============================= */
+.fc {
+  /* رنگ خطوط و زمینه */
+  --fc-border-color: var(--calendar-border);
+  --fc-now-indicator-color: #a855f7;
+  --fc-today-bg-color: rgba(168, 85, 247, 0.08);
+  font-family: 'Inter', sans-serif;
+  background-color: var(--card) !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* فقط ستون‌های شنبه و یکشنبه */
+.fc .fc-timegrid-col.fc-day-sat,
+.fc .fc-timegrid-col.fc-day-sun {
+  background-color: var(--last-week) !important;
+}
+
+/* ============================= */
+/* 🔹 نوار بالای تقویم (ماه و فلش‌ها) */
+/* ============================= */
+.fc-toolbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-bottom: 12px;
+  margin: 0 !important;
+}
+
+/* عنوان ماه و سال */
+.fc-toolbar-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 !important;
+  color: var(--secondary);
+}
+
+.fc-toolbar-chunk {
+  width: 100% !important;
+  display: flex;
+  align-items: center !important;
+  justify-content: start !important;
+  gap: 4px;
+}
+
+.fc-toolbar-chunk:last-child {
+  justify-content: end !important;
+}
+
+.fc-button-group {
+  gap: 16px;
+}
+
+.fc-button {
+  background: none !important;
+  border: none !important;
+  color: var(--secondary) !important;
+  font-size: 1.5rem !important;
+  outline: none !important;
+  padding: 0 !important;
+}
+
+.fc-button:focus,
+.fc-button:active {
+  box-shadow: none !important;
+}
+
+/* ============================= */
+/* 🔸 عنوان روزهای هفته (Mon–Sun) */
+/* ============================= */
+
+.fc-col-header {
+  min-height: 52px !important;
+  background-color: var(--card) !important;
+}
+
+.fc-theme-standard td {
+  border-width: 1px !important;
+}
+
+.fc-theme-standard th {
+  border: none !important;
+}
+
+.fc-col-header-cell {
+  border: none !important;
+}
+
+.fc-col-header-cell.fc-day-today {
+  background: linear-gradient(135deg, #8e2fd6, #c58df0);
+}
+
+.fc-col-header-cell.fc-day-today .fc-col-header-cell-cushion {
+  color: white !important;
+}
+
+.fc-col-header-cell-cushion {
+  min-height: 52px !important;
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ============================= */
+/* 🕐 ردیف‌های ساعت‌ها (12AM تا ...) */
+/* ============================= */
+.fc-scrollgrid {
+  border-width: 1px !important;
+}
+
+.fc-scrollgrid-shrink {
+  border: none !important;
+  padding: 8px !important;
+}
+
+.fc-scrollgrid-shrink-frame {
+  text-align: left !important;
+}
+
+.fc-scrollgrid-sync-inner {
+  border: none !important;
+}
+
+/* css */
+.fc-timegrid-slot {
+  height: 128px !important;
+  position: relative;
+  border-bottom: 1px solid #b4b4b4;
+}
+
+/* متن ساعت (مثل 1AM، 2AM) */
+.fc-timegrid-slot-label-cushion {
+  color: var(--text3);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* ============================= */
+/* 🔹 grids */
+/* ============================= */
+
+.fc-media-screen
+  .fc-timeGridWeek-view
+  .fc-view-harness
+  .fc-scrollgrid
+  .fc-scrollgrid-section {
+  overflow: hidden !important;
+}
+
+/* ============================= */
+/* استایل رویدادها  */
+/* ============================= */
+
+.fc-event {
+  outline: none !important;
+  border: none !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ============================= */
+/* 🧭 اسکرول و نوارهای پیمایش */
+/* ============================= */
+.fc-scroller::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 6px;
+}
