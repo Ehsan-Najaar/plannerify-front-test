@@ -11,22 +11,22 @@ export const validateEmail = (email) => {
 export const groupFeedbacks = (data) => {
   const feedbacks = []
 
+  if (!Array.isArray(data)) return feedbacks
+
   const feedbackMap = {}
 
-  data.forEach(({ key, value }) => {
-    const match = key.match(
+  ;(data || []).forEach(({ key, value }) => {
+    const match = key?.match(
       /(personName|personTag|personFeedback|personProfile)_(\d+)/
     )
     if (match) {
       const [, field, index] = match
-      if (!feedbackMap[index]) {
-        feedbackMap[index] = {}
-      }
+      if (!feedbackMap[index]) feedbackMap[index] = {}
       feedbackMap[index][field] = value
     }
   })
 
-  Object.keys(feedbackMap).forEach((index) => {
+  Object.keys(feedbackMap || {}).forEach((index) => {
     const feedback = feedbackMap[index]
     if (feedback.personName && feedback.personTag && feedback.personFeedback) {
       feedbacks.push({

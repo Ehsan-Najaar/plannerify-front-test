@@ -30,7 +30,11 @@ export default function TermsAdminPage() {
         if (langs?.[0]?.id) setActiveLangId(langs[0].id)
 
         const res = await listReq({ params: { offset: 0, limit: 100 } })
-        const items = res?.items ?? res ?? []
+        const items = Array.isArray(res?.items)
+          ? res.items
+          : Array.isArray(res)
+          ? res
+          : []
         const m = new Map()
         items.forEach((it) => m.set(it.languageId, it))
         setTermsMap(m)

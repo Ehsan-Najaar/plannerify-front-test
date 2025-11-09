@@ -1,4 +1,4 @@
-const HOST = process.env.NEXT_PUBLIC_API_URL || 'https://plannerify.io/api'
+const HOST = process.env.NEXT_PUBLIC_API_URL
 
 export const LOGIN = `${HOST}/auth/login`
 export const LOGOUT = `${HOST}/auth/logout`
