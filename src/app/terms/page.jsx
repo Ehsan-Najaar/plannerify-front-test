@@ -8,6 +8,8 @@ export const metadata = {
     'Review plannerify.io Terms of Service to understand the rules, responsibilities, and conditions for using our task and goal management platform. Your use of plannerify.io means you agree to these terms.',
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function TermsPage() {
   let contentHtml = ''
   let direction = 'ltr'
