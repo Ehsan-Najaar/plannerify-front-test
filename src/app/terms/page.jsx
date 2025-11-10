@@ -8,17 +8,16 @@ export const metadata = {
     'Review plannerify.io Terms of Service to understand the rules, responsibilities, and conditions for using our task and goal management platform. Your use of plannerify.io means you agree to these terms.',
 }
 
-export const revalidate = 60
-
 export default async function TermsPage() {
   let contentHtml = ''
   let direction = 'ltr'
 
   try {
+    // ✅ SSR fetch — no-store یعنی در هر ریکوئست از سرور بگیر
     const langsRes = await fetch(LANGUAGE, { cache: 'no-store' })
     if (!langsRes.ok) throw new Error('Failed to load languages')
-    const languages = await langsRes.json()
 
+    const languages = await langsRes.json()
     const lang = languages?.[0]
     if (!lang) throw new Error('No languages found')
 
@@ -26,7 +25,7 @@ export default async function TermsPage() {
 
     const termsRes = await fetch(
       `${TERMS}/?languageId=${lang.id}&offset=0&limit=1`,
-      { next: { revalidate } }
+      { cache: 'no-store' }
     )
     if (!termsRes.ok) throw new Error('Failed to load terms')
 

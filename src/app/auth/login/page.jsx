@@ -1,3 +1,4 @@
+// src/app/auth/login/page.jsx
 'use client'
 
 import { useStore } from '@/components/context/ClientProvider'
@@ -16,7 +17,6 @@ export default function Login() {
   const { t } = useTranslation()
   const router = useRouter()
   const { setStore } = useStore()
-
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [loginReq, loginLoader] = useRequest({ url: LOGIN, method: 'POST' })
 
@@ -26,21 +26,34 @@ export default function Login() {
       return
     }
 
+    console.log('Login request sent:', formData)
+
     loginReq(formData)
       .then((r) => {
-        const user = {
-          accessToken: r.access_token,
-          email: r.email,
-          id: r.id,
-          firstName: r.firstName,
-          lastName: r.lastName,
-          role: r.role,
-        }
-        setStore((prev) => ({ ...prev, user }))
-        router.push(user.role === 'user' ? '/dashboard' : '/dashboard/admin')
+        console.log('Login response:', r)
+
+        setStore((prev) => ({
+          ...prev,
+          user: {
+            accessToken: r.access_token,
+            email: r.user.email,
+            id: r.user.id,
+            firstName: r.user.firstName,
+            lastName: r.user.lastName,
+            role: r.user.role,
+          },
+        }))
+
+        console.log(
+          'Redirecting to:',
+          r.user.role === 'user' ? '/dashboard' : '/dashboard/admin'
+        )
+
+        window.location.href =
+          r.user.role === 'user' ? '/dashboard' : '/dashboard/admin'
       })
       .catch((e) => {
-        console.error(e)
+        console.error('Login error:', e)
         toast.error(
           e?.status === 406
             ? t(
@@ -58,7 +71,6 @@ export default function Login() {
           <h1 className="text-xl font-medium">{t('Login')}</h1>
           <p>{t('Please enter your username and password')}</p>
         </div>
-
         <div>
           <Input
             type="text"
@@ -85,14 +97,12 @@ export default function Login() {
             {t('Forgot Password')}
           </button>
         </div>
-
         <Button
           caption={t('Login')}
           color="primary"
           onClick={submit}
           loading={loginLoader}
         />
-
         <div>
           {t("Don't have an account?")}{' '}
           <Link

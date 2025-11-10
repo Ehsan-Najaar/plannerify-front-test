@@ -2,6 +2,8 @@
 import HomePageLanguage from '@/components/HomePageLanguage'
 import { CONTENT, SOCIAL, SUBSCRIPTIONS } from '@/data/api'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   try {
     const [contentRes, socialRes, subscriptionsRes] = await Promise.all([

@@ -1,3 +1,4 @@
+// src/hooks/useRequest.js
 'use client'
 
 import { useStore } from '@/components/context/ClientProvider'
@@ -22,10 +23,13 @@ export function useRequest({
   const [loading, setLoading] = useState(loaderInitState)
   const [cancel, setCancel] = useState(null)
   const { store, setStore } = useStore()
+
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://plannerify.io/api'
 
   const response = useCallback(
     async (data, params) => {
+      console.log('useRequest called:', { url, data, params })
+
       const CancelToken = axios.CancelToken
       setLoading(true)
 
@@ -51,20 +55,59 @@ export function useRequest({
           ...(moreConfigs || {}),
         })
 
+        console.log('useRequest success:', res.data)
+
         setLoading(false)
         return res.data
       } catch (e) {
+        console.error('useRequest error:', e)
         setLoading(false)
 
         if (e.code === 'ERR_NETWORK') {
           toast.error('Server communication error!')
           return Promise.reject(e)
         }
-
         if (e.code === 'ERR_CANCELED') return
 
         if (e.response) {
           const { status, data: errData } = e.response
+
+          if (status === 401) {
+            try {
+              const refreshRes = await axios.post(
+                `${baseUrl}/auth/refresh`,
+                {},
+                { withCredentials: true }
+              )
+              const newToken = refreshRes.data.access_token
+
+              setStore((prev) => ({
+                ...prev,
+                user: { ...prev.user, accessToken: newToken },
+              }))
+
+              const retryRes = await axios({
+                method,
+                url: fullUrl,
+                data: method.toLowerCase() !== 'get' ? data : undefined,
+                params: method.toLowerCase() === 'get' ? data : undefined,
+                headers: {
+                  Authorization: `Bearer ${newToken}`,
+                  ...(multipart
+                    ? { 'Content-Type': 'multipart/form-data' }
+                    : {}),
+                },
+                withCredentials: true,
+              })
+
+              return retryRes.data
+            } catch {
+              setStore((prev) => ({ ...prev, user: null }))
+              window.location.href = '/auth/login'
+              toast.error('Session expired. Please login again.')
+              return Promise.reject(e)
+            }
+          }
 
           if (status === 403) {
             sessionStorage.removeItem('user')
